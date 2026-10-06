@@ -1,0 +1,20 @@
+:root {
+  --r-background-color: var(--nugu-content-backdrop);
+  --r-main-color: var(--nugu-content-normal);
+  --r-heading-color: var(--nugu-content-accent);
+  --r-link-color: var(--nugu-content-important-local);
+  --r-link-color-hover: var(--nugu-content-focus);
+  --r-selection-background-color: var(--nugu-content-important-local);
+  --r-selection-color: var(--nugu-content-backdrop);
+}
+
+.reveal strong { color: var(--nugu-content-focus); }
+.reveal blockquote { background-color: var(--nugu-ui-backdrop); }
+.reveal pre {
+  background-color: var(--nugu-ui-backdrop);
+  color: var(--nugu-ui-normal);
+}
+.reveal .slide-number {
+  color: var(--nugu-ui-normal);
+  background-color: var(--nugu-ui-backdrop);
+}

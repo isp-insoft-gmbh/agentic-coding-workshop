@@ -1,0 +1,36 @@
+direction: right
+
+title: Context Window {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+window: |md
+  # Contex Window
+  > 200K - 1M Tokens (2026)
+  - System Prompt
+  - Tool_1
+  - Prompt_1
+  - Result_1
+  - Tool_1O1
+  - Prompt_2
+  - ...
+|
+
+window_compact: |md
+  # Compacted Contex Window
+  - System Prompt
+  - Summary of
+  	- Tool_1
+    -	Prompt_1
+    - Result_1
+    - Tool_1O1
+    - Prompt_2
+    - ...
+|
+
+window -> window_compact: summarize at ~80%

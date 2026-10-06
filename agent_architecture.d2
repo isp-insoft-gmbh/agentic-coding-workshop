@@ -1,0 +1,63 @@
+title: {
+  shape: text
+  label: "AI Agent Architecture"
+  style.font-size: 24
+  style.bold: true
+  style.underline: true
+}
+
+User: {
+  shape: person
+}
+
+Agent: {
+  Brain: {
+    shape: hexagon
+    label: "LLM 🧠"
+
+    reasoning: {
+      shape: text
+      label: |md
+        - Planning
+        - Decision Making
+        - Reasoning
+      |
+    }
+  }
+
+  Memory: {
+    shape: cylinder
+    label: "Context 💾"
+
+    types: {
+      shape: text
+      label: |md
+        - Context Window
+        - CLAUDE.md/AGENTS.md
+        - Skills
+      |
+    }
+  }
+
+  Tools: {
+    shape: rectangle
+    label: "Tools 🔧"
+
+    examples: {
+      shape: text
+      label: |md
+        - Web Search
+        - Code Execution
+        - API Calls
+      |
+    }
+  }
+
+  Brain -> Tools: "Execute action"
+  Tools -> Brain: "Return results"
+  Brain -> Memory: "Recall context"
+  Memory -> Brain: "Provide history"
+}
+
+User -> Agent.Brain: "Query/Input"
+Agent.Brain -> User: "Final answer"

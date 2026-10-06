@@ -1,0 +1,49 @@
+direction: right
+
+title: What is a "tool" {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+shape: sequence_diagram
+chat: Chat UI
+tools: Tools\nMachine {
+  shape: oval
+  |xml
+    <system_prompt>
+    	Use this tool, when greeting the user
+    	by outputting the greeting like this:
+    	<tool>
+    		<name>hello</name>
+    		<message>{GREETING}</message>
+    	</tool>
+    </system_prompt>
+  |
+}
+
+context: Context Window
+llm: LLM
+Turn 1: {
+  chat -> tools: |tex SystemPrompt + \textcolor{green}{Prompt_1} |
+  tools -> context: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} |
+  context -> llm: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} |
+  llm -> context: |tex Result_1 |
+  context.|xml
+    <tool>
+    	<name>hello</name>
+    	<message>Sei gegrüßt, mein treuer Untertane!</message>
+    </tool>
+  |
+  context -> tools: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} + \textcolor{magenta}{Result_1} |
+  tools -> tools: premitted?
+  tools."EXECUTE TOOL!"
+  tools -> chat: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} + (\textcolor{magenta}{Result_1} + Tool_101) |
+}
+Turn 2: {
+  chat -> tools: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} + (\textcolor{magenta}{Result_1} + Tool_101)+ Prompt_2 |
+  tools -> context: |tex SystemPrompt + Tool_1 + \textcolor{green}{Prompt_1} + (\textcolor{magenta}{Result_1} + Tool_101) + Prompt_2 |
+}

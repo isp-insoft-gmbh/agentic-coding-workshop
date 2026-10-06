@@ -1,0 +1,47 @@
+direction: right
+
+input: {
+  shape: rectangle
+  label: |md
+    **Input context window**
+
+    The · cat · sat
+  |
+  style.font-size: 30
+  style.stroke-width: 2
+}
+
+llm: {
+  shape: rectangle
+  style.fill: "#dedae2"
+  style.font-color: "#121212"
+  label: |md
+    **LLM**
+
+    Predict the next token.
+  |
+  style.font-size: 30
+  style.stroke-width: 2
+}
+
+output: {
+  shape: rectangle
+  label: |md
+    **Output context window**
+
+    The · cat · sat
+
+    **on · the · mat**
+  |
+  style.font-size: 30
+  style.stroke-width: 2
+}
+
+input -> llm: prompt {
+  style.font-size: 26
+  style.stroke-width: 3
+}
+llm -> output: response {
+  style.font-size: 26
+  style.stroke-width: 3
+}

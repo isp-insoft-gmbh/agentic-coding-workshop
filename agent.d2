@@ -1,0 +1,22 @@
+direction: right
+
+title: Agentic Chat {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+shape: sequence_diagram
+chat: Chat UI
+chat."Context:\nSystem Prompt,\nPresonality,\nSOUL.md,\nAGENTS.md,\nInstructions\nAttached Files"
+context: Context Window
+llm: LLM
+Turn 1: {
+  chat -> context: |tex Context + \textcolor{green}{Prompt_1} |
+  context -> llm: |tex Context + \textcolor{green}{Prompt_1} |
+  llm -> context: |tex Result_1 |
+  context -> chat: |tex Context + \textcolor{green}{Prompt_1} + \textcolor{magenta}{Result_1} |
+}

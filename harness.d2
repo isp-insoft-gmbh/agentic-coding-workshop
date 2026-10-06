@@ -1,0 +1,80 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+  }
+}
+
+direction: right
+
+title: Coding Harnesses {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+tools: "Tools and Model Context Protocol (MCP)" {
+  tool: Tool
+  mcp: MCP
+  harness: Coding Harness
+  tool -> harness: builtin
+  mcp -> harness: server-client architecture
+}
+
+skills: "Skills" {
+  skill: SKILL.md {
+    md: |md
+      # Using Maven (mvn)
+      When compiling Maven projects, use this command:
+      ```bash
+      ./mvnw -T2.0 compile
+    |
+    metadata: |yaml
+      description: Use when launching maven (mvn) commands
+    |
+  }
+  tool: "Skill loading tool"
+  context: "System Prompt"
+  agent: "Coding Agent"
+
+  agent -> context -> skill.metadata
+  agent -> tool -> skill.md
+}
+
+multiagent: "Subagents" {
+  bob: bob.md {
+    md: |md
+      Your name is Bob.
+    |
+    metadata: |yaml
+      name: bob
+    |
+  }
+  alice: alice.md {
+    md: |md
+      Your name is Alice.
+    |
+    metadata: |yaml
+      name: alice
+    |
+  }
+  context: "System Prompt"
+  harness: "Coding Harness"
+  human: "Human"
+
+  human -> harness: /select-agent bob
+  harness -> context -> bob.md
+
+  human -> harness: /select-agent alice
+  harness -> context -> alice.md
+}
+
+subagent: "Subagents and Delegation" {
+  main_agent: "Main Agent"
+  sub_agent: "Sub Agent"
+  delegate: "Delegate tool"
+  main_agent -> delegate
+  delegate -> sub_agent: Spawn subagent with FRESH context
+}

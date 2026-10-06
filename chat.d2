@@ -1,0 +1,21 @@
+The Chat Loop: {
+  shape: sequence_diagram
+
+  chat: Chat
+  context: Context Window
+  llm: LLM
+
+  Turn 1: {
+    chat -> context: |tex Prompt_1 |
+    context -> llm: |tex Prompt_1 |
+    llm -> context: |tex Prompt_1+\textcolor{green}{Result_1} |
+    context -> chat: |tex Result_1 |
+  }
+
+  Turn 2: {
+    chat -> context: |tex Prompt_2 |
+    context -> llm: |tex Prompt_1+Result_1+\textcolor{green}{Prompt_2} |
+    llm -> context: |tex Prompt_1+Result_1+Prompt_2+\textcolor{green}{Result_2} |
+    context -> chat: |tex Result_2 |
+  }
+}

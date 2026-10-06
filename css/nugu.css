@@ -1,0 +1,49 @@
+/* Generated from dotfiles/nugu. Do not edit in bugabinga.net. */
+:root {
+  color-scheme: light dark;
+  --nugu-debug: #a112a1;
+  --nugu-error: #bd172e;
+  --nugu-warning: #6e6c10;
+  --nugu-info: #116477;
+  --nugu-content-normal: #121212;
+  --nugu-content-backdrop: #ededed;
+  --nugu-content-accent: #ae2eae;
+  --nugu-content-minor: #3b3b3b;
+  --nugu-content-focus: #184e5b;
+  --nugu-content-unfocus: #6f6f6f;
+  --nugu-content-important-local: #715696;
+  --nugu-content-important-global: #4f3c69;
+  --nugu-ui-normal: #242424;
+  --nugu-ui-backdrop: #dbdbdb;
+  --nugu-ui-accent: #922792;
+  --nugu-ui-minor: #292929;
+  --nugu-ui-focus: #15333b;
+  --nugu-ui-unfocus: #5d5d5d;
+  --nugu-ui-important-local: #604980;
+  --nugu-ui-important-global: #3e2f53;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --nugu-debug: #ed5eed;
+  --nugu-error: #ec6376;
+  --nugu-warning: #f0ee69;
+  --nugu-info: #3ec5e3;
+  --nugu-content-normal: #ededed;
+  --nugu-content-backdrop: #121212;
+  --nugu-content-accent: #d151d1;
+  --nugu-content-minor: #8b8b8b;
+  --nugu-content-focus: #7ba1aa;
+  --nugu-content-unfocus: #5d5d5d;
+  --nugu-content-important-local: #b59ae4;
+  --nugu-content-important-global: #dfd3f3;
+  --nugu-ui-normal: #dbdbdb;
+  --nugu-ui-backdrop: #242424;
+  --nugu-ui-accent: #d86dd8;
+  --nugu-ui-minor: #9d9d9d;
+  --nugu-ui-focus: #9aabae;
+  --nugu-ui-unfocus: #6f6f6f;
+  --nugu-ui-important-local: #c9b6eb;
+  --nugu-ui-important-global: #f3effb;
+  }
+}

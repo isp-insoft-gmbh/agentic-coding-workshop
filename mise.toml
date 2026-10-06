@@ -1,0 +1,31 @@
+[tools]
+pandoc = "latest"
+d2 = "latest"
+watchexec = "latest"
+"github:cortesi/devd" = "latest"
+
+[task_config]
+shell = "cmd /d /c"
+
+[tasks.dev]
+description = "Build deck, watch sources, and serve with browser reload"
+depends = ["build"]
+run = [{ tasks = ["watch", "serve"] }]
+
+[tasks.build]
+description = "Compile diagrams and workshop deck into html/"
+run = [
+  'if not exist html mkdir html',
+  'xcopy css html\css\ /E /I /Y',
+  'for %f in (*.jpg *.png) do copy /Y "%f" html\',
+  'for %f in (*.d2) do ((type "%f" & echo. & type css\nugu.d2) | d2 --center - "html\%~nf.svg" || exit /b)',
+  'pandoc index.md section/fundamentals_and_mental_models.md section/spec_driven_development.md specs.md workflows.md collab.md section/setup_and_fun.md node_python.md sdd_frameworks.md statusline.md ccusage.md section/agentic_coding_guidelines.md ressources.md prompting.md models.md section/beyond_basics.md context_engineering.md writing_skills.md tokens.md ci.md interface.md genie.md --from=markdown --to=revealjs --standalone --slide-level=2 --css=css/nugu.css --css=css/slides.css --variable=revealjs-url:https://cdn.jsdelivr.net/npm/reveal.js@latest --variable=hash:true --metadata=pagetitle:"Agentic Coding Workshop 2026" --output=html/index.html',
+]
+
+[tasks.watch]
+hide = true
+run = "mise watch build --watch . --exts md,d2,css,html,toml --ignore html/** --shell=none --on-busy-update queue --debounce 300ms --postpone"
+
+[tasks.serve]
+hide = true
+run = "devd --livewatch --address=127.0.0.1 --port=8080 html"
