@@ -1,3 +1,9 @@
+## Browser Access
+
+- [Firefox MCP](https://github.com/mozilla/firefox-devtools-mcp)
+- [Chrome MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp/)
+- [Playwright](https://playwright.dev/docs/getting-started-mcp)
+
 ## Further Ressources
 
 - [TSS Skills](https://skills.totalspecificsolutions.ai/): TSS skills repo
@@ -7,9 +13,3 @@
 - [Ponytail](https://ponytail.dev/): senior dev practices
 - [Cavemen](https://github.com/juliusbrussee/caveman): less words, less output, less tokens
 - [Artificial Analysis](https://artificialanalysis.ai/): model benchmarks and cost
-
-### Browser Access
-
-- [Firefox MCP](https://github.com/mozilla/firefox-devtools-mcp)
-- [Chrome MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp/)
-- [Playwright](https://playwright.dev/docs/getting-started-mcp)
