@@ -31,3 +31,10 @@ the harness loads `CLAUDE.md`/`AGENTS.md` files and `SKILL.md` files from differ
 ---
 
 the goal is to provide minimum necessary context to agent to be effective
+
+---
+
+share with your team
+
+what works: teach
+what does not work: repair
