@@ -19,7 +19,7 @@ run = [
   'xcopy css html\css\ /E /I /Y',
   'for %f in (*.jpg *.png) do copy /Y "%f" html\',
   'for %f in (*.d2) do ((type "%f" & echo. & type css\nugu.d2) | d2 --center - "html\%~nf.svg" || exit /b)',
-  'pandoc index.md section/fundamentals_and_mental_models.md section/spec_driven_development.md specs.md workflows.md collab.md section/setup_and_fun.md node_python.md sdd_frameworks.md statusline.md ccusage.md section/agentic_coding_guidelines.md prompting.md models.md section/beyond_basics.md context_engineering.md writing_skills.md tokens.md ci.md interface.md genie.md ressources.md --from=markdown --to=revealjs --standalone --slide-level=2 --css=css/nugu.css --css=css/slides.css --variable=revealjs-url:https://cdn.jsdelivr.net/npm/reveal.js@latest --variable=hash:true --metadata=pagetitle:"Agentic Coding Workshop 2026" --output=html/index.html',
+  'pandoc index.md section/fundamentals_and_mental_models.md section/spec_driven_development.md specs.md workflows.md collab.md section/setup_and_fun.md node_python.md sdd_frameworks.md statusline.md ccusage.md section/agentic_coding_guidelines.md prompting.md models.md section/beyond_basics.md markdown.md context_engineering.md writing_skills.md personal.md tokens.md ci.md interface.md genie.md ressources.md --from=markdown --to=revealjs --standalone --slide-level=2 --css=css/nugu.css --css=css/slides.css --variable=revealjs-url:https://cdn.jsdelivr.net/npm/reveal.js@latest --variable=hash:true --metadata=pagetitle:"Agentic Coding Workshop 2026" --output=html/index.html',
 ]
 
 [tasks.watch]
